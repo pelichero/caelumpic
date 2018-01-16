@@ -1,18 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+//	caelumpic/src/app/app.module.ts
+import 'rxjs/add/operator/map';	//	importou	a	extensão	map!
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppComponent} from './app.component';
+import {FotoModule} from './foto/foto.module';
+import {HttpModule} from '@angular/http';
 
-
-import { AppComponent } from './app.component';
-import { FotoComponent} from './foto/foto.component';
 
 @NgModule({
-  declarations: [
-    AppComponent, FotoComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [BrowserModule, FotoModule, HttpModule],
+    declarations: [AppComponent],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

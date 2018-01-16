@@ -1,10 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- caelumpic/src/app/app.component.html -->
+<!--	caelumpic/src/app/app.component.html	-->
 <div class="jumbotron">
-    <h1 class="text-center">{{titulo}}</h1>
+    <h1 class="text-center">{{title}}</h1>
 </div>
 <div class="container">
-    <foto url="../assets/image/casadocodigo.png"></foto>
-    <foto url="../assets/image/casadocodigo.png"></foto>
-    <foto url="../assets/image/casadocodigo.png"></foto>
+    <foto *ngFor="let	foto	of	fotos" url="{{foto.url}}" titulo="{{foto.titulo}}"></foto>
 </div>
