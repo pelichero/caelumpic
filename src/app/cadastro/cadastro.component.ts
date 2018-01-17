@@ -10,6 +10,7 @@ export class CadastroComponent {
     foto: FotoComponent = new FotoComponent();
 
     cadastrar() {
+        event.preventDefault();
         console.log(this.foto);
     }
 }

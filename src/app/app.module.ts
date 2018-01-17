@@ -10,6 +10,7 @@ import {FotoModule} from './foto/foto.module';
 import {PainelModule} from './painel/painel.module';
 import {ListagemComponent} from './listagem/listagem.component';
 import {CadastroComponent} from './cadastro/cadastro.component';
+import {FormsModule} from '@angular/forms';
 import {routing} from './app.routes';
 
 @NgModule({
@@ -18,6 +19,7 @@ import {routing} from './app.routes';
         FotoModule,
         HttpModule,
         PainelModule,
+        FormsModule,
         routing],
     declarations: [
         AppComponent,
