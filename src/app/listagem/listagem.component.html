@@ -1,9 +1,24 @@
-<!--	caelumpic/src/app/app.component.html	-->
-<div	class="jumbotron">
-    <h1	class="text-center">{{title}}</h1>
+<!--	caelumpic/src/app/listagem/listagem.component.html	-->
+<div class="jumbotron">
+    <h1 class="text-center">Caelumpic</h1>
 </div>
-<div	class="container">
-    <div	class="row">
-        <painel	*ngFor="let	foto	of	fotos" titulo="{{foto.titulo}}" class="col-md-2">
-            <foto	titulo="{{foto.titulo}}" url="{{foto.url}}"></foto>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <a href="/cadastro" class="btn	btn-primary"> Nova	foto </a>
+                    </span>
+                </div>
+            </form>
+        </div>    <!--	fim	col-md-12	-->
+    </div>    <!--	fim	row	-->
+    <br>
+    <div class="row">
+        <painel *ngFor="let	foto	of	fotos" titulo="{{foto.titulo}}" class="col-md-2">
+            <foto titulo="{{foto.titulo}}" url="{{foto.url}}"></foto>
         </painel>
+    </div><!--	fim	row	-->
+</div><!--	fim	container	-->

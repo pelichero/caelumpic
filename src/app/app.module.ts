@@ -9,6 +9,7 @@ import {AppComponent} from './app.component';
 import {FotoModule} from './foto/foto.module';
 import {PainelModule} from './painel/painel.module';
 import {ListagemComponent} from './listagem/listagem.component';
+import {CadastroComponent} from './cadastro/cadastro.component';
 import {routing} from './app.routes';
 
 @NgModule({
@@ -20,6 +21,7 @@ import {routing} from './app.routes';
         routing],
     declarations: [
         AppComponent,
+        CadastroComponent,
         ListagemComponent],
     bootstrap: [AppComponent]
 })
