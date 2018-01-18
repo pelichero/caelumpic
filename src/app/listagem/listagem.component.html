@@ -3,6 +3,10 @@
     <h1 class="text-center">Caelumpic</h1>
 </div>
 <div class="container">
+    <div *ngIf="mensagem" class="alert alert-warning">
+        {{mensagem}}
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             <form>
@@ -10,6 +14,9 @@
                 <div class="input-group">
                     <a	[routerLink]="['/cadastro']"	class="btn	btn-primary">
                         Nova	foto
+                    </a>
+                    <a	(click)="gerarFotos()"	class="btn	btn-primary">
+                        Gerar 10 fotos
                     </a>
                 </div>
             </form>

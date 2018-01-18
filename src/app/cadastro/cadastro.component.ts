@@ -2,7 +2,6 @@
 import {Component} from '@angular/core'
 import {FotoComponent} from '../foto/foto.component'
 import {FotoService} from "../servicos/foto.service"
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
     selector: 'cadastro',
@@ -11,17 +10,10 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 export class CadastroComponent {
     foto: FotoComponent = new FotoComponent()
     service: FotoService
-    meuForm:	FormGroup
     mensagem: String
 
-    constructor(service: FotoService, fb:	FormBuilder) {
+    constructor(service: FotoService) {
         this.service = service
-
-        this.meuForm	=	fb.group({
-            titulo:	['',	Validators.required],
-            url:	['',	Validators.required],
-            descricao:	[''],
-        })
     }
 
     cadastrar() {

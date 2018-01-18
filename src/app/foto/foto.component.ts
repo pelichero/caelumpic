@@ -6,7 +6,7 @@ import {Component, Input} from '@angular/core';
 })
 export class FotoComponent {
     @Input() titulo: string = 'Titulo'
-    @Input() url: string = '    '
+    @Input() url: string = 'https://www.todoestudo.com.br/wp-content/uploads/2015/03/paisagem-natural-1024x679.jpg'
     descricao: string = 'Descricao'
     _id: string
 }
