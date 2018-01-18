@@ -27,7 +27,7 @@ export class CadastroComponent {
             JSON.stringify(this.foto),
             {headers: headers}
         ).subscribe(
-            value => console.log(value),
+            () => this.foto = new FotoComponent(),
             erro => console.log(erro)
         )
 
