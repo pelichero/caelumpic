@@ -1,7 +1,8 @@
 //	caelumpic/src/app/cadastro/cadastro.component.ts
-import {Component, Input} from '@angular/core';
-import {FotoComponent} from '../foto/foto.component';
-import {Http, Headers} from '@angular/http'
+import {Component} from '@angular/core'
+import {FotoComponent} from '../foto/foto.component'
+import {FotoService} from "../servicos/foto.service"
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
     selector: 'cadastro',
@@ -9,27 +10,31 @@ import {Http, Headers} from '@angular/http'
 })
 export class CadastroComponent {
     foto: FotoComponent = new FotoComponent()
+    service: FotoService
+    meuForm:	FormGroup
+    mensagem: String
 
-    ajax: Http
+    constructor(service: FotoService, fb:	FormBuilder) {
+        this.service = service
 
-    constructor(ajax: Http) {
-        this.ajax = ajax
+        this.meuForm	=	fb.group({
+            titulo:	['',	Validators.required],
+            url:	['',	Validators.required],
+            descricao:	[''],
+        })
     }
 
     cadastrar() {
-        //	cria	uma	instância	de	Headers
-        let headers = new Headers();
-        //	Adiciona	o	tipo	de	conteúdo	application/json
-        headers.append('Content-Type', 'application/json');
+        console.log(this.foto)
 
-        this.ajax.post(
-            'http://localhost:3000/v1/fotos',
-            JSON.stringify(this.foto),
-            {headers: headers}
-        ).subscribe(
-            () => this.foto = new FotoComponent(),
-            erro => console.log(erro)
-        )
-
+        this.service
+            .cadastra(this.foto)
+            .subscribe(() => {
+                this.foto = new FotoComponent()
+                this.mensagem = `Foto ${this.foto.titulo}	salva	com	sucesso`
+                setTimeout(() => this.mensagem = '', 3000)
+            }, erro => {
+                this.mensagem = erro
+            })
     }
 }

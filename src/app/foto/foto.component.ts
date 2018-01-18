@@ -5,7 +5,8 @@ import {Component, Input} from '@angular/core';
     templateUrl: './foto.component.html'
 })
 export class FotoComponent {
-    @Input() titulo: string = 'Titulo';
-    @Input() url: string = 'http://www.ilhabela.com.br/wp-content/uploads/2012/11/praia_portinho.jpg?x21935';
-    descricao: string = 'Descricao';
+    @Input() titulo: string = 'Titulo'
+    @Input() url: string = '    '
+    descricao: string = 'Descricao'
+    _id: string
 }

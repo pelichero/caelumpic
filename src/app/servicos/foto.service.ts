@@ -1,7 +1,8 @@
 //	caelumpic/src/app/foto/foto.service.ts
-import {Http, Headers} from '@angular/http'
+import {Http, Headers, Response} from '@angular/http'
 import {FotoComponent} from '../foto/foto.component'
 import {Injectable} from '@angular/core';
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class FotoService {
@@ -21,5 +22,9 @@ export class FotoService {
     cadastra(foto: FotoComponent) {
         return this.http.post(this.url, JSON.stringify(foto),
             {headers: this.headers})
+    }
+
+    remover(foto: FotoComponent): Observable<Response> {
+        return this.http.delete(`${this.url}/${foto._id}`)
     }
 }

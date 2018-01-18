@@ -19,6 +19,7 @@
     <div class="row">
         <painel *ngFor="let	foto	of	fotos" titulo="{{foto.titulo}}" class="col-md-2">
             <foto titulo="{{foto.titulo}}" url="{{foto.url}}"></foto>
+            <button class="btn btn-danger center-block" (click)="excluir(foto)">Remover</button>
         </painel>
     </div><!--	fim	row	-->
 </div><!--	fim	container	-->

@@ -17,4 +17,11 @@ export class ListagemComponent {
                 erro	=>	console.log(erro)
             );
     }
+
+    excluir(foto:FotoComponent){
+        this.service.remover(foto).subscribe(() =>
+                this.fotos = this.fotos.filter(fotoFilter => (fotoFilter != foto) )
+
+        )
+    }
 }

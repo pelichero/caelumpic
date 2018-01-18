@@ -1,1 +1,6 @@
-<img	[src]="url"	[alt]="titulo" class="img-responsive	center-block">
+<figure>
+    <img src="{{url}}" class="img-responsive	center-block">
+    <figcaption>
+        <ng-content></ng-content>
+    </figcaption>
+</figure>

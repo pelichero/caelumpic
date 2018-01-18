@@ -6,6 +6,10 @@
 
 <!--caelumpic/src/app/cadastro/cadastro.component.html-->
 <div class="container">
+    <div *ngIf="mensagem" class="alert alert-success">
+        {{mensagem}}
+    </div>
+
     <form (submit)="cadastrar()" class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -32,10 +36,12 @@
             </button>
             <a [routerLink]="['']" class="btn	btn-primary">Voltar</a>
         </div>
-            <aside>
-                <painel titulo="{{foto.titulo}}" class="col-md-2">
-                    <foto titulo="{{foto.titulo}}" url="{{foto.url}}"></foto>
-                </painel>
-            </aside>
+        <aside>
+            <painel *ngIf="foto.titulo" titulo="{{foto.titulo}}" class="col-md-2">
+                <foto url="{{foto.url}}">
+                    {{foto.descricao}}
+                </foto>
+            </painel>
+        </aside>
     </form>
 </div>
