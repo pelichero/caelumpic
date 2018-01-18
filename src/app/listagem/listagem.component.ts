@@ -1,7 +1,7 @@
 //	caelumpic/src/app/listagem/listagem.component.ts
 import {Component} from '@angular/core';
-import {Http} from '@angular/http';
 import {FotoComponent} from "../foto/foto.component";
+import {FotoService} from "../servicos/foto.service";
 
 @Component({
     selector: 'listagem',
@@ -10,12 +10,11 @@ import {FotoComponent} from "../foto/foto.component";
 export class ListagemComponent {
     fotos: Array<FotoComponent> = new Array<FotoComponent>()
 
-    constructor(http: Http) {
-        http.get('http://localhost:3000/v1/fotos')
-            .map(res => res.json())
+    constructor(private service: FotoService) {
+        service.lista()
             .subscribe(
-                fotos => this.fotos = fotos,
-                erro => console.log(erro)
+                fotos	=>	this.fotos	=	fotos,
+                erro	=>	console.log(erro)
             );
     }
 }
