@@ -19,14 +19,19 @@ export class FotoService {
             .map(res => res.json())
     }
 
-    consultar(id:string): Observable<FotoComponent> {
+    consultar(id: string): Observable<FotoComponent> {
         return this.http.get(`${this.url}/${id}`)
             .map(resposta => resposta.json())
     }
 
     cadastra(foto: FotoComponent) {
-        return this.http.post(this.url, JSON.stringify(foto),
-            {headers: this.headers})
+        if (foto._id) {
+            return this.http.put(this.url + '/' + foto._id, JSON.stringify(foto),
+                {headers: this.headers});
+        } else {
+            return this.http.post(this.url, JSON.stringify(foto),
+                {headers: this.headers});
+        }
     }
 
     remover(foto: FotoComponent): Observable<Response> {

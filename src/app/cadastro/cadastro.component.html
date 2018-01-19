@@ -10,17 +10,24 @@
         {{mensagem}}
     </div>
 
-    <form (submit)="cadastrar()" class="row">
+    <form #meuForm="ngForm" (submit)="cadastrar()" class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label>Título</label>
-                <input [(ngModel)]="foto.titulo"
+                <input
+                       required
+                       #titulo="ngModel"
+                       [(ngModel)]="foto.titulo"
                        name="titulo"
                        class="form-control">
+                <span *ngIf="titulo.invalid" class="form-control alert-danger"> Campo obrigatorio </span>
             </div>
             <div class="form-group">
                 <label>URL</label>
-                <input [(ngModel)]="foto.url"
+                <input
+                       #url="ngModel"
+                       required
+                       [(ngModel)]="foto.url"
                        name="url"
                        class="form-control">
             </div>
@@ -31,9 +38,7 @@
                           class="form-control">
                 </textarea>
             </div>
-            <button type="submit" class="btn	btn-primary">
-                Salvar
-            </button>
+            <button	type="submit"	class="btn	btn-primary"	[disabled]="meuForm.form.invalid">Salvar</button>
             <a [routerLink]="['']" class="btn	btn-primary">Voltar</a>
         </div>
         <aside>
