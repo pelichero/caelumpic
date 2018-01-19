@@ -19,9 +19,7 @@ export class ListagemComponent {
                 fotos	=>	this.fotos	=	fotos,
                 erro	=>	console.log(erro)
             );
-
-        // this.cadastro = new CadastroComponent(service, undefined)
-    }
+        }
 
     excluir(foto:FotoComponent){
         this.service.remover(foto).subscribe(() => {
@@ -31,12 +29,5 @@ export class ListagemComponent {
         }, erro => {
             this.mensagem = erro
         })
-    }
-
-    /**
-     * Somente mocks
-     */
-    gerarFotos(){
-        // for(let i=0;i<10;i++) this.cadastro.cadastrar()
     }
 }
