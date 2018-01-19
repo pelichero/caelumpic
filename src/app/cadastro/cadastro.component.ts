@@ -2,6 +2,7 @@
 import {Component} from '@angular/core'
 import {FotoComponent} from '../foto/foto.component'
 import {FotoService} from "../servicos/foto.service"
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'cadastro',
@@ -12,8 +13,20 @@ export class CadastroComponent {
     service: FotoService
     mensagem: String
 
-    constructor(service: FotoService) {
+    constructor(service: FotoService, private activatedRoute: ActivatedRoute) {
         this.service = service
+        this.activatedRoute.params.subscribe(p =>{
+            if(p.id){
+                this.carregaFotoId(p.id)
+            }
+        })
+    }
+
+    carregaFotoId(id){
+        this.service.consultar(id).subscribe(
+            foto => this.foto = foto,
+            erro => this.mensagem = erro
+        )
     }
 
     cadastrar() {

@@ -20,7 +20,7 @@ export class ListagemComponent {
                 erro	=>	console.log(erro)
             );
 
-        this.cadastro = new CadastroComponent(service)
+        // this.cadastro = new CadastroComponent(service, undefined)
     }
 
     excluir(foto:FotoComponent){
@@ -37,6 +37,6 @@ export class ListagemComponent {
      * Somente mocks
      */
     gerarFotos(){
-        for(let i=0;i<10;i++) this.cadastro.cadastrar()
+        // for(let i=0;i<10;i++) this.cadastro.cadastrar()
     }
 }
